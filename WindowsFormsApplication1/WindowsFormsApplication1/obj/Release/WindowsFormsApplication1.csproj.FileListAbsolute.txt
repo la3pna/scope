@@ -7,3 +7,4 @@ C:\Users\Thomas\Documents\GitHub\scope\WindowsFormsApplication1\WindowsFormsAppl
 C:\Users\Thomas\Documents\GitHub\scope\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.csproj.GenerateResource.Cache
 C:\Users\Thomas\Documents\GitHub\scope\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.exe
 C:\Users\Thomas\Documents\GitHub\scope\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.pdb
+C:\Users\Thomas\Documents\GitHub\scope\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.csprojResolveAssemblyReference.cache

@@ -36,8 +36,9 @@
             this.txtRead = new System.Windows.Forms.TextBox();
             this.Write = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TXTid = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnOpen
@@ -72,7 +73,7 @@
             // 
             // btnRead
             // 
-            this.btnRead.Location = new System.Drawing.Point(523, 279);
+            this.btnRead.Location = new System.Drawing.Point(523, 218);
             this.btnRead.Name = "btnRead";
             this.btnRead.Size = new System.Drawing.Size(75, 23);
             this.btnRead.TabIndex = 4;
@@ -89,10 +90,16 @@
             // 
             // txtRead
             // 
-            this.txtRead.Location = new System.Drawing.Point(25, 281);
+            this.txtRead.AcceptsReturn = true;
+            this.txtRead.AcceptsTab = true;
+            this.txtRead.AllowDrop = true;
+            this.txtRead.Location = new System.Drawing.Point(25, 210);
+            this.txtRead.MaxLength = 3276700;
+            this.txtRead.Multiline = true;
             this.txtRead.Name = "txtRead";
-            this.txtRead.Size = new System.Drawing.Size(429, 20);
+            this.txtRead.Size = new System.Drawing.Size(429, 111);
             this.txtRead.TabIndex = 6;
+            this.txtRead.TextChanged += new System.EventHandler(this.txtRead_TextChanged);
             // 
             // Write
             // 
@@ -106,19 +113,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 262);
+            this.label1.Location = new System.Drawing.Point(27, 194);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 8;
             this.label1.Text = "Read";
             // 
-            // textBox1
+            // TXTid
             // 
-            this.textBox1.Location = new System.Drawing.Point(25, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(317, 20);
-            this.textBox1.TabIndex = 9;
-            this.textBox1.Text = "USB0::0x1AB1::0x0588::DS1ET151908637::INSTR";
+            this.TXTid.Location = new System.Drawing.Point(25, 46);
+            this.TXTid.Name = "TXTid";
+            this.TXTid.Size = new System.Drawing.Size(317, 20);
+            this.TXTid.TabIndex = 9;
+            this.TXTid.Text = "USB0::0x1AB1::0x0588::DS1ET151908637::INSTR";
             // 
             // label2
             // 
@@ -129,13 +136,21 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Instrument ID";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(30, 359);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(432, 20);
+            this.textBox1.TabIndex = 11;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(641, 381);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.TXTid);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Write);
             this.Controls.Add(this.txtRead);
@@ -162,8 +177,9 @@
         private System.Windows.Forms.TextBox txtRead;
         private System.Windows.Forms.Label Write;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TXTid;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

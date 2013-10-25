@@ -22,12 +22,12 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+          
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            string strVISARsrc = cboVISARsrc.Text;
+            string strVISARsrc = TXTid.Text;
 
             try
             {
@@ -82,6 +82,12 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show(exp.Message);
             }
+           
+        }
+
+        private void txtRead_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
