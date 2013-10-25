@@ -1,0 +1,9 @@
+C:\Users\Thomas\Documents\GitHub\scope\WindowsFormsApplication1\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.exe.config
+C:\Users\Thomas\Documents\GitHub\scope\WindowsFormsApplication1\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.exe
+C:\Users\Thomas\Documents\GitHub\scope\WindowsFormsApplication1\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.pdb
+C:\Users\Thomas\Documents\GitHub\scope\WindowsFormsApplication1\WindowsFormsApplication1\bin\Release\NationalInstruments.Common.Native.dll
+C:\Users\Thomas\Documents\GitHub\scope\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Form1.resources
+C:\Users\Thomas\Documents\GitHub\scope\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Thomas\Documents\GitHub\scope\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\Thomas\Documents\GitHub\scope\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.exe
+C:\Users\Thomas\Documents\GitHub\scope\WindowsFormsApplication1\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.pdb
