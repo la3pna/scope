@@ -1,0 +1,10 @@
+C:\Users\Thomas\Documents\GitHub\scope\scope_ask\scope_ask\bin\Debug\scope_ask.exe.config
+C:\Users\Thomas\Documents\GitHub\scope\scope_ask\scope_ask\bin\Debug\scope_ask.exe
+C:\Users\Thomas\Documents\GitHub\scope\scope_ask\scope_ask\bin\Debug\scope_ask.pdb
+C:\Users\Thomas\Documents\GitHub\scope\scope_ask\scope_ask\bin\Debug\NationalInstruments.Common.Native.dll
+C:\Users\Thomas\Documents\GitHub\scope\scope_ask\scope_ask\obj\Debug\scope_ask.csprojResolveAssemblyReference.cache
+C:\Users\Thomas\Documents\GitHub\scope\scope_ask\scope_ask\obj\Debug\scope_ask.Form1.resources
+C:\Users\Thomas\Documents\GitHub\scope\scope_ask\scope_ask\obj\Debug\scope_ask.Properties.Resources.resources
+C:\Users\Thomas\Documents\GitHub\scope\scope_ask\scope_ask\obj\Debug\scope_ask.csproj.GenerateResource.Cache
+C:\Users\Thomas\Documents\GitHub\scope\scope_ask\scope_ask\obj\Debug\scope_ask.exe
+C:\Users\Thomas\Documents\GitHub\scope\scope_ask\scope_ask\obj\Debug\scope_ask.pdb

@@ -22,12 +22,13 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          
+            cboVISARsrc.Items.Add("USB0::0x1AB1::0x0588::DS1ET151908637::INSTR");
+        
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            string strVISARsrc = TXTid.Text;
+            string strVISARsrc = cboVISARsrc.Text;
 
             try
             {
@@ -87,7 +88,7 @@ namespace WindowsFormsApplication1
 
         private void txtRead_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
     }
 }

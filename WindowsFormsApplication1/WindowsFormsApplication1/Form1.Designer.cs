@@ -36,9 +36,9 @@
             this.txtRead = new System.Windows.Forms.TextBox();
             this.Write = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.TXTid = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cboVISARsrc = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnOpen
@@ -119,14 +119,6 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Read";
             // 
-            // TXTid
-            // 
-            this.TXTid.Location = new System.Drawing.Point(25, 46);
-            this.TXTid.Name = "TXTid";
-            this.TXTid.Size = new System.Drawing.Size(317, 20);
-            this.TXTid.TabIndex = 9;
-            this.TXTid.Text = "USB0::0x1AB1::0x0588::DS1ET151908637::INSTR";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -143,14 +135,22 @@
             this.textBox1.Size = new System.Drawing.Size(432, 20);
             this.textBox1.TabIndex = 11;
             // 
+            // cboVISARsrc
+            // 
+            this.cboVISARsrc.FormattingEnabled = true;
+            this.cboVISARsrc.Location = new System.Drawing.Point(25, 44);
+            this.cboVISARsrc.Name = "cboVISARsrc";
+            this.cboVISARsrc.Size = new System.Drawing.Size(330, 21);
+            this.cboVISARsrc.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(641, 381);
+            this.Controls.Add(this.cboVISARsrc);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.TXTid);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Write);
             this.Controls.Add(this.txtRead);
@@ -177,9 +177,9 @@
         private System.Windows.Forms.TextBox txtRead;
         private System.Windows.Forms.Label Write;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox TXTid;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cboVISARsrc;
     }
 }
 
