@@ -52,17 +52,37 @@ namespace scope_ask
 
         private void btnRead_Click(object sender, EventArgs e)
         {
-            string strRead = null;
+            byte[] strRead = null;
 
             try
             {
-                strRead = mbSession.ReadString();
-                textBox2.Text = strRead;
+                strRead = mbSession.ReadByteArray();
+                textBox2.Text = strRead.ToString();
+               
             }
             catch (Exception exp)
             {
                 MessageBox.Show(exp.Message);
             }
+
+            int[] intRead;
+
+            intRead = new int[strRead.Length];
+            int length = strRead.Length;
+
+
+            for (int j = 0; j < length; j++)
+            {
+
+                intRead[j] = (int)strRead[j]; // my nasty byte to int converter
+
+            }
+
+            //need to apply correction to data, may be better to write an separate aqquire program based on this
+
+
+
+
         }
 
         private void btnQuerry_Click(object sender, EventArgs e)
@@ -90,6 +110,7 @@ namespace scope_ask
             {
                 MessageBox.Show(exp.Message);
             }
+            Application.Exit();
         }
     }
 }

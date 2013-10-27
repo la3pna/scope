@@ -64,6 +64,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(427, 20);
             this.textBox3.TabIndex = 2;
+            this.textBox3.Text = "USB0::0x1AB1::0x0588::DS1ET151908637::INSTR";
             // 
             // btnOpen
             // 
