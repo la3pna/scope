@@ -206,7 +206,7 @@ namespace Scope_aquire_waveform
                      timeend = "ms";
                      flttime = flttime * 1000;
                  }
-                 else if (flttime < 0.001 & flttime > 0.0000009)
+                 else if (flttime < 0.001 & flttime > 0.000009)
                  {
                      timeend = "µs";
                      flttime = flttime * 1000000;
