@@ -34,6 +34,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnWaveform = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtFilename = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,11 +94,31 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "label2";
             // 
+            // txtFilename
+            // 
+            this.txtFilename.Location = new System.Drawing.Point(14, 583);
+            this.txtFilename.Name = "txtFilename";
+            this.txtFilename.Size = new System.Drawing.Size(342, 20);
+            this.txtFilename.TabIndex = 5;
+            this.txtFilename.Text = "C:\\Users\\Thomas\\Desktop\\test.csv";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(443, 583);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 6;
+            this.btnSave.Text = "Save csv";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(541, 609);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.txtFilename);
             this.Controls.Add(this.btnWaveform);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnOpen);
@@ -120,6 +142,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnWaveform;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtFilename;
+        private System.Windows.Forms.Button btnSave;
     }
 }
 

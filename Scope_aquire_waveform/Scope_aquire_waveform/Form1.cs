@@ -11,6 +11,7 @@ using NationalInstruments.VisaNS;
 using System.Text.RegularExpressions;
 using System.Drawing.Imaging;
 using System.Globalization;
+using System.IO;
 
 namespace Scope_aquire_waveform
 {
@@ -28,6 +29,8 @@ namespace Scope_aquire_waveform
         float[] ch1_data;
         float[] ch2_data;
         float[] time;
+        float fltVoltscale;
+
 
 
         public Form1()
@@ -94,29 +97,31 @@ namespace Scope_aquire_waveform
                 intRead[j] = (int)strRead[j]; // my nasty byte to int converter :p
             }
 
-
-
-            for (int j = 0; j < length-10; j++)
+            // in this part, inverting the data is not neccesarry, due to the fact that [0,0] is in top corner
+             for (int j = 0; j < length-11; j++)
             {
-                voltage[j] = (float)strRead[j+10]*1.0 +255.0; //invert the data
+                voltage[j] = (float)strRead[j + 10];// *1.0 + 255.0; //invert the data
                 //data = data * -1 + 255
             }
 
             ch1_data = new float[voltage.Length];
 
-            float fltVoltoffset = float.Parse(voltoffset,CultureInfo.InvariantCulture);
-            float fltVoltscale = float.Parse(voltscale,CultureInfo.InvariantCulture);
+          // Double.Parse("1.234567E-06", NumberStyles.Float, CultureInfo.InvariantCulture)
+
+            float fltVoltoffset = float.Parse(voltoffset,NumberStyles.Float,CultureInfo.InvariantCulture);
+                  fltVoltscale = float.Parse(voltscale,NumberStyles.Float,CultureInfo.InvariantCulture);
   
-            for (int j = 1; j < voltage.Length; j++)
+            for (int j = 0; j < voltage.Length; j++)
             {
-                ch1_data[j] = (float)(voltage[j] - 130 - (fltVoltoffset / fltVoltscale) * 25) / (25 * fltVoltscale);
+                ch1_data[j] = (float)(((voltage[j] - 125) / 25) * fltVoltscale);// -fltVoltoffset; //- (fltVoltoffset / fltVoltscale)*25) / (25 *fltVoltscale);
                 //data = (data - 130.0 - voltoffset/voltscale*25) / 25 * voltscale
+                //observe that negative vectors = positive going amplitude? 
             }
 
             //need to apply correction to timedata
             time = new float[ch1_data.Length];
 
-            for (int j = 1; j < ch1_data.Length; j++)
+            for (int j = 0; j < ch1_data.Length; j++)
             {
                 time[j] = j;
             }
@@ -136,7 +141,7 @@ namespace Scope_aquire_waveform
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e) // do the drawing of the graph.
         {
              if (ch1_data != null){
 
@@ -147,29 +152,45 @@ namespace Scope_aquire_waveform
             Pen3 = new Pen(System.Drawing.Color.Red, 1);
             Graphics ClientDC = panel1.CreateGraphics();
             float xmax = time.Max();
-            float ymax = ch1_data.Max();
+            float ymax = (float)4.0*fltVoltscale;
             float xscale = panel1.Width;
             float yscale = panel1.Height;
             float length = ch1_data.Length;
+            float halfheight =  (float)(ClientDC.VisibleClipBounds.Height / 2.0);
 
             for (int i = 0; i < length - 1; i++)
                 {
-                    ClientDC.DrawLine(Pen1, ((time[i + 1] / xmax) * xscale), (((ch1_data[i] / ymax)) * yscale), ((time[i] / xmax) * xscale), (((ch1_data[i + 1] / ymax)) * yscale));
+                    ClientDC.DrawLine(Pen1, ((time[i + 1] / xmax) * xscale), (((ch1_data[i] / ymax)) *halfheight)+halfheight, ((time[i] / xmax) * xscale), (((ch1_data[i + 1] / ymax)) * halfheight)+halfheight);
                 }
 
-            for (int i = 0; i <= 12; i++)
+            for (int i = 0; i <= 9; i++)
             {
                 ClientDC.DrawLine(Pen3, (i * xscale) / 10, (0 * yscale), (i * xscale) / 10, (1 * yscale));
-
+                // 8 horisontal lines
             }
 
             for (int i = 0; i <= 11; i++)
             {
-                ClientDC.DrawLine(Pen3, (1 * xscale), (((i * yscale) / 10)),(0 * xscale), ((i * yscale) / 10));
+                ClientDC.DrawLine(Pen3, (1 * xscale), (((i * yscale) / 8)),(0 * xscale), ((i * yscale) / 8));
             }
                  
         }
     }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string FilePath = txtFilename.Text;
+            string[] TotalData = new string[ch1_data.Length];
+            string[] ch1data = new string[ch1_data.Length];
+            for (int i = 0; i < ch1_data.Length ; i++)
+            {
+                ch1data[i] = (ch1_data[i]*-1.0).ToString(CultureInfo.InvariantCulture);
+               TotalData[i] = ch1data[i];// +",";//+ LastNames[i] + "," + Ages[i];
+            }
+            File.WriteAllLines(FilePath, TotalData);
+            MessageBox.Show("CSV File Created Successfully", "Success");
+        
+        }
 
     }
 }
