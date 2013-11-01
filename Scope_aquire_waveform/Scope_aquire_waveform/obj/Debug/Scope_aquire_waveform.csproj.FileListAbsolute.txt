@@ -8,3 +8,4 @@ C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_wavefo
 C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_waveform\obj\Debug\Scope_aquire_waveform.exe
 C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_waveform\obj\Debug\Scope_aquire_waveform.pdb
 C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_waveform\bin\Debug\NationalInstruments.Common.Native.dll
+C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_waveform\obj\Debug\Scope_aquire_waveform.Form2.resources
