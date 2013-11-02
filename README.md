@@ -1,6 +1,8 @@
 scope
 =====
 
+Last version: Alpha2.0 avaible as zip.
+
 Needs NI VISA:
 
 Windows: http://joule.ni.com/nidu/cds/view/p/id/3823/lang/en
