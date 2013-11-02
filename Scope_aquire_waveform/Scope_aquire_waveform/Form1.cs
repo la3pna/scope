@@ -52,7 +52,7 @@ namespace Scope_aquire_waveform
                 string[] stSesssion_avaible = ResourceManager.GetLocalManager().FindResources("?*");
                 comboBox1.Items.AddRange(stSesssion_avaible);
             }
-            catch (Exception exp) { MessageBox.Show(exp.Message);  }
+            catch (Exception exp) { MessageBox.Show(exp.Message+"\n \n This error may be due to VISA not being installed or the instrument not found");  }
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
@@ -143,11 +143,16 @@ namespace Scope_aquire_waveform
 
             mbSession.Write(":KEY:FORC");
 
+
+           float timescale_fl = float.Parse(timescale, NumberStyles.Float, CultureInfo.InvariantCulture);
+            int steps = time.Length / 12 ;
+            
+
             time_vector = new float[time.Length];
             int i = 0;
             for (float k = -(time.Length/2); k < (time.Length/2); k++)
             {
-                time_vector[i] = k;
+                time_vector[i] = (k/steps)*(timescale_fl);
                 i = i + 1;
             }
 
@@ -209,20 +214,20 @@ namespace Scope_aquire_waveform
                     // 8 horisontal lines
                 }
 
-                for (int i = 0; i <= 9; i++)
+                for (int i = 0; i <= 8; i++)
                 {
                     ClientDC.DrawLine(Pen3, (1 * xscale), (((i * yscale) / 8)), (0 * xscale), ((i * yscale) / 8));
                 }
 
-                for (int i = 0; i <= 90; i++)
+                for (int i = 0; i <= 80; i++)
                 {
                     ClientDC.DrawLine(Pen3, (float)(0.49 * xscale), (((i * yscale) / 80)), (float)(0.51 * xscale), ((i * yscale) / 80));
-                    //tics
+                    //tics y 
                 }
-                for (int i = 0; i <= 110; i++)
+                for (int i = 0; i <= 120; i++)
                 {
-                    ClientDC.DrawLine(Pen3, (float)(i * xscale) / 80, (float)((0.49 * yscale)), (float)(i * xscale) / 80, (float)(0.51 * yscale));
-                    // tics
+                    ClientDC.DrawLine(Pen3, (float)(i * xscale) / 120, (float)((0.49 * yscale)), (float)(i * xscale) / 120, (float)(0.51 * yscale));
+                    // tics x
                 }
 
                 string timeend;
@@ -245,7 +250,7 @@ namespace Scope_aquire_waveform
                 }
 
 
-                label5.Text = Convert.ToString(flttime) + " " + timeend;
+                label5.Text = Convert.ToString(flttime) + " " + timeend + " grid";
 
             }
         }
@@ -256,12 +261,14 @@ namespace Scope_aquire_waveform
             string[] TotalData = new string[ch1_data.Length];
             string[] ch1data = new string[ch1_data.Length];
             string[] ch2data = new string[ch2_data.Length];
+            string[] timedata = new string[time_vector.Length];
             string[] timevector = new string[time_vector.Length];
             for (int i = 0; i < ch1_data.Length; i++)
             {
                 ch1data[i] = (ch1_data[i] * -1.0).ToString(CultureInfo.InvariantCulture);
                 ch2data[i] = (ch2_data[i] * -1.0).ToString(CultureInfo.InvariantCulture);
-                TotalData[i] = ch1data[i] + "," + ch2data[i] + "," + time_vector[i];
+                timedata[i] = (time_vector[i]).ToString(CultureInfo.InvariantCulture);
+                TotalData[i] = ch1data[i] + "," + ch2data[i] + "," + timedata[i];
             }
             File.WriteAllLines(FilePath, TotalData);
             
@@ -396,6 +403,21 @@ namespace Scope_aquire_waveform
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            save_csv(textBox1.Text);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
