@@ -315,85 +315,87 @@ namespace Scope_aquire_waveform
             }
         }
 
+        
+        private SaveFileDialog saveFileDialog1;
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            Stream myStream;
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            
+            saveFileDialog1 = new SaveFileDialog();
 
             saveFileDialog1.Filter = "Comma separated (*.csv)|*.csv|Graph picture (*.jpg)|*.jpg|All files (*.*)|*.*";
             saveFileDialog1.FilterIndex = 1;
             saveFileDialog1.RestoreDirectory = true;
+            saveFileDialog1.FileOk += saveFileDialog1_FileOk;
+            saveFileDialog1.ShowDialog();
 
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-
-                if ((myStream = saveFileDialog1.OpenFile()) != null)
-                {
-
-
-
-                    var extension = Path.GetExtension(saveFileDialog1.FileName);
-
-                    switch (extension.ToLower())
-                    {
-                        case ".jpg":
-
-                            this.Hide();
-
-                            // Hide the form so that it does not appear in the screenshot
-                            
-                            try
-                            {
-                               PrintScreen(saveFileDialog1.FileName);
-                             }
-                            catch (Exception exp)
-                            {
-                                MessageBox.Show(exp.Message);
-                            }
-                           
-                            break;
-                        case ".csv":
-                            //
-                          //  save_csv(saveFileDialog1.FileName);
-                            //
-
-                            string FilePath = saveFileDialog1.FileName;
-                           
-                            saveFileDialog1.Dispose();
-                            
-                                GC.Collect();
-
-                                StreamWriter wr = new StreamWriter(FilePath);
-
-
-                                //  sw.WriteLine("Hello World!");
-
-
-                                //string FilePath = txtFilename.Text;
-                                string[] TotalData = new string[ch1_data.Length];
-                                string[] ch1data = new string[ch1_data.Length];
-                                string[] ch2data = new string[ch2_data.Length];
-                                string[] timevector = new string[time_vector.Length];
-                                for (int i = 0; i < ch1_data.Length; i++)
-                                {
-                                    ch1data[i] = (ch1_data[i] * -1.0).ToString(CultureInfo.InvariantCulture);
-                                    ch2data[i] = (ch2_data[i] * -1.0).ToString(CultureInfo.InvariantCulture);
-                                    wr.WriteLine(ch1data[i] + "," + ch2data[i] + "," + time_vector[i]);
-                                }
-                                //File.WriteAllLines(FilePath, TotalData);
-
-                                MessageBox.Show("CSV File Created Successfully", "Success");
-                                wr.Close();
-                            
-                            break;
-                    }
-                }
-
-
-            }
 
         }
+
+        void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+            if (e.Cancel == true)
+                return;
+
+                Stream myStream;
+
+                var extension = Path.GetExtension(saveFileDialog1.FileName);
+
+                switch (extension.ToLower())
+                {
+                    case ".jpg":
+
+                        this.Hide();
+
+                        // Hide the form so that it does not appear in the screenshot
+
+                        try
+                        {
+                            //PrintScreen(saveFileDialog1.FileName);
+                        }
+                        catch (Exception exp)
+                        {
+                            MessageBox.Show(exp.Message);
+                        }
+
+                        break;
+                    case ".csv":
+                        //
+                        // save_csv(saveFileDialog1.FileName);
+                        //
+
+                        string FilePath = saveFileDialog1.FileName;
+
+
+                        StreamWriter wr = new StreamWriter(FilePath);
+
+                        // sw.WriteLine("Hello World!");
+
+
+                        //string FilePath = txtFilename.Text;
+                        string[] TotalData = new string[ch1_data.Length];
+                        string[] ch1data = new string[ch1_data.Length];
+                        string[] ch2data = new string[ch2_data.Length];
+                        string[] timevector = new string[time_vector.Length];
+                        for (int i = 0; i < ch1_data.Length; i++)
+                        {
+                            ch1data[i] = (ch1_data[i] * -1.0).ToString(CultureInfo.InvariantCulture);
+                            ch2data[i] = (ch2_data[i] * -1.0).ToString(CultureInfo.InvariantCulture);
+                            wr.WriteLine(ch1data[i] + "," + ch2data[i] + "," + time_vector[i]);
+                        }
+                        
+                        //File.WriteAllLines(FilePath, TotalData);
+
+                        wr.Close();
+                        MessageBox.Show("CSV File Created Successfully", "Success");
+
+
+                        break;
+                }
+            }
+
+        
+    }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e) // settings form
         {
