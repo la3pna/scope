@@ -6,7 +6,7 @@
       <Value Profile="(Default)">USB0::0x1AB1::0x0588::DS1ET151908637::INSTR</Value>
     </Setting>
     <Setting Name="cal" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">130</Value>
+      <Value Profile="(Default)">125</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -37,15 +37,17 @@ namespace Scope_aquire_waveform
         float fltVoltoffset_ch1;
         float fltVoltoffset_ch2;
         Form2 secondForm = new Form2();
-        public static int cal_value=125;
+        public static int cal_value = Properties.Settings.Default.cal;
         public static string strVISArsrc;
 
+           
 
 
         public Form1()
         {
             
             InitializeComponent();
+            cal_value = Properties.Settings.Default.cal;
             
             try
             {

@@ -37,7 +37,7 @@ namespace Scope_aquire_waveform.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("130")]
+        [global::System.Configuration.DefaultSettingValueAttribute("125")]
         public int cal {
             get {
                 return ((int)(this["cal"]));
