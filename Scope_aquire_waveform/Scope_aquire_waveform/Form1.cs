@@ -61,7 +61,12 @@ namespace Scope_aquire_waveform
             try
             {
                 mbSession = (MessageBasedSession)ResourceManager.GetLocalManager().Open(strVISArsrc);
-              
+               // if (mbSession.ResourceManufacturerID == ){
+             //  string a  = (string)mbSession.ResourceManufacturerID ;
+               // }
+               // here it should check for the appropriate Rigol or Agilent scope, given that agilent have same data set
+     
+                
             }
             catch (InvalidCastException)
             {
@@ -302,6 +307,9 @@ namespace Scope_aquire_waveform
 
         private void PrintScreen(string file)
         {
+            /*
+            Application.DoEvents();
+           
 
             Rectangle bounds = this.Bounds;
             using (Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height))
@@ -313,16 +321,58 @@ namespace Scope_aquire_waveform
                 bitmap.Save(file , ImageFormat.Jpeg);
                 bitmap.Dispose();
             }
+            */
+            string initialDirectory = file;
+            using (BackgroundWorker worker = new BackgroundWorker()) {
+    Thread.Sleep(0);
+    this.Refresh();
+    worker.DoWork += delegate(object sender, DoWorkEventArgs e) {
+      BackgroundWorker wkr = sender as BackgroundWorker;
+      Rectangle bounds = new Rectangle(Location, Size);
+      Thread.Sleep(300);
+      Bitmap bitmap = new Bitmap(bounds.Width, bounds.Height);
+      using (Graphics g = Graphics.FromImage(bitmap)) {
+        g.CopyFromScreen(Location, Point.Empty, bounds.Size);
+      }
+      e.Result = bitmap;
+    };
+    worker.RunWorkerCompleted += delegate(object sender, RunWorkerCompletedEventArgs e) {
+      if (e.Error != null) {
+        Exception err = e.Error;
+        while (err.InnerException != null) {
+          err = err.InnerException;
+        }
+        MessageBox.Show(err.Message, "Screen Capture", 
+			MessageBoxButtons.OK, MessageBoxIcon.Stop);
+      } else if (e.Cancelled == true) {
+      } else if (e.Result != null) {
+        if (e.Result is Bitmap) {
+          Bitmap bitmap = (Bitmap)e.Result;
+          
+              bitmap.Save(file);
+             
+              }
+            }
+          
+        
+      
+    };
+    worker.RunWorkerAsync();
+  
+}
+
+
         }
 
-        
         private SaveFileDialog saveFileDialog1;
+
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             
             saveFileDialog1 = new SaveFileDialog();
 
-            saveFileDialog1.Filter = "Comma separated (*.csv)|*.csv|Graph picture (*.jpg)|*.jpg|All files (*.*)|*.*";
+            saveFileDialog1.Filter = "Comma separated (*.csv)|*.csv|Graph picture (*.jpg)|*.jpg";
             saveFileDialog1.FilterIndex = 1;
             saveFileDialog1.RestoreDirectory = true;
             saveFileDialog1.FileOk += saveFileDialog1_FileOk;
@@ -334,10 +384,11 @@ namespace Scope_aquire_waveform
         void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
+            
             if (e.Cancel == true)
                 return;
 
-                Stream myStream;
+               
 
                 var extension = Path.GetExtension(saveFileDialog1.FileName);
 
@@ -345,19 +396,20 @@ namespace Scope_aquire_waveform
                 {
                     case ".jpg":
 
-                        this.Hide();
-
+                       
                         // Hide the form so that it does not appear in the screenshot
 
                         try
                         {
-                            //PrintScreen(saveFileDialog1.FileName);
+                               
+                         PrintScreen(saveFileDialog1.FileName);
+
                         }
                         catch (Exception exp)
                         {
                             MessageBox.Show(exp.Message);
                         }
-
+                       
                         break;
                     case ".csv":
                         //
@@ -366,7 +418,7 @@ namespace Scope_aquire_waveform
 
                         string FilePath = saveFileDialog1.FileName;
 
-
+                        
                         StreamWriter wr = new StreamWriter(FilePath);
 
                         // sw.WriteLine("Hello World!");
@@ -385,42 +437,22 @@ namespace Scope_aquire_waveform
                         }
                         
                         //File.WriteAllLines(FilePath, TotalData);
-
+                        
                         wr.Close();
                         MessageBox.Show("CSV File Created Successfully", "Success");
 
 
                         break;
                 }
-            }
 
-        
-    }
+
+
+            }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e) // settings form
         {
            
             secondForm.Show();
-           
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            save_csv(textBox1.Text);
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
         }
 

@@ -1,1 +1,10 @@
 C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_waveform\bin\Release\Scope_aquire_waveform.exe.config
+C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_waveform\bin\Release\Scope_aquire_waveform.exe
+C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_waveform\bin\Release\Scope_aquire_waveform.pdb
+C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_waveform\bin\Release\NationalInstruments.Common.Native.dll
+C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_waveform\obj\Release\Scope_aquire_waveform.Form1.resources
+C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_waveform\obj\Release\Scope_aquire_waveform.Form2.resources
+C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_waveform\obj\Release\Scope_aquire_waveform.Properties.Resources.resources
+C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_waveform\obj\Release\Scope_aquire_waveform.csproj.GenerateResource.Cache
+C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_waveform\obj\Release\Scope_aquire_waveform.exe
+C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_waveform\obj\Release\Scope_aquire_waveform.pdb
