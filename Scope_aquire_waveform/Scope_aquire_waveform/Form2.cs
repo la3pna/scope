@@ -16,17 +16,28 @@ namespace Scope_aquire_waveform
         {
             InitializeComponent();
 
-            textBox2.Text = (Convert.ToString(Form1.cal_value));
+            textBox2.Text = (Convert.ToString(Properties.Settings.Default.cal));
             textBox1.Text = Form1.strVISArsrc;
-
+           
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             textBox1.Text = "You pressed save :-p";
-           
+
+            Form1.cal_value = Convert.ToInt32(textBox2.Text);
+            Properties.Settings.Default.cal = Convert.ToInt32(textBox2.Text);
             
-            
+        }
+
+        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form1.cal_value = Convert.ToInt32(textBox2.Text);
+            Properties.Settings.Default.cal = Convert.ToInt32(textBox2.Text);
+            Properties.Settings.Default.Save();
+           // Properties.Settings.Default.Upgrade();
+          
         }
     }
 }

@@ -435,7 +435,8 @@ namespace Scope_aquire_waveform
                         {
                             ch1data[i] = (ch1_data[i] * -1.0).ToString(CultureInfo.InvariantCulture);
                             ch2data[i] = (ch2_data[i] * -1.0).ToString(CultureInfo.InvariantCulture);
-                            wr.WriteLine(ch1data[i] + "," + ch2data[i] + "," + time_vector[i]);
+                            timevector[i] = (time_vector[i]).ToString(CultureInfo.InvariantCulture);
+                            wr.WriteLine(ch1data[i] + "," + ch2data[i] + "," + timevector[i]);
                         }
                         
                         //File.WriteAllLines(FilePath, TotalData);

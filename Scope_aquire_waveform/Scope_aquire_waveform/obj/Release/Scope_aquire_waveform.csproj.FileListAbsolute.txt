@@ -8,3 +8,4 @@ C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_wavefo
 C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_waveform\obj\Release\Scope_aquire_waveform.csproj.GenerateResource.Cache
 C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_waveform\obj\Release\Scope_aquire_waveform.exe
 C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_waveform\obj\Release\Scope_aquire_waveform.pdb
+C:\Users\Thomas\Documents\GitHub\scope\Scope_aquire_waveform\Scope_aquire_waveform\obj\Release\Scope_aquire_waveform.csprojResolveAssemblyReference.cache
